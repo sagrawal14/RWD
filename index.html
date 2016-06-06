@@ -1,19 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-ng-app="amyApp" data-ng-controller="GlobalController as globalCtrl"><![endif]>
 <head>
-    <title>Bootstrap Example</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Amy</title>
+    <link rel="shortcut icon" type="image/png" ng-href="{{::globalCtrl.organization.logoURL}}" />
+
+    <!-- Vendor CSS -->
+    <link href="bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+          rel="stylesheet">
+    <link href="bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+    <link href="bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet">
+    <link href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="styles/css/app.min.1.css" rel="stylesheet" id="app-level">
+    <link href="styles/css/app.min.2.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
 
-<div class="container">
-    <h1>My First Bootstrap Page</h1>
-    <p>This is some text.</p>
-</div>
+<body ng-class="{ 'sw-toggled': globalCtrl.layoutType === '1'}">
 
+    <ui-view>
+        <div class="preloader pl-lg app-loading">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+        </div>
+    </ui-view>
+
+    <!-- Core -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-server-timezone/dist/angular-server-timezone.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <!-- Angular Modules -->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <!-- Common Vendors -->
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="bower_components/Waves/dist/waves.min.js"></script>
+    <script src="scripts/vendor/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
+
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+
+    <!-- Using below vendors in order to avoid misloading on resolve -->
+    <script src="bower_components/flot/jquery.flot.js"></script>
+    <script src="bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+    <script src="bower_components/flot/jquery.flot.pie.js"></script>
+    <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="bower_components/angular-nouislider/src/nouislider.min.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission.min.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ui.min.js"></script>
+    <script src="bower_components/bootstrap-angular-validation/dist/bootstrap-angular-validation.min.js"></script>
+
+    <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+
+    <!-- App level -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/states.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/templates.js"></script>
+
+    <!-- Template Modules -->
+    <script src="scripts/modules/template.js"></script>
+    <script src="scripts/modules/ui.js"></script>
+    <script src="scripts/modules/charts/flot.js"></script>
+    <script src="scripts/modules/charts/other-charts.js"></script>
+    <script src="scripts/modules/form.js"></script>
+
+    <script src="scripts/core/app.js"></script>
+    <script src="scripts/global.controller.js"></script>
+    <script src="scripts/controllers/header.controller.js"></script>
+    <script src="scripts/dashboard/dashboard.controller.js"></script>
+    <script src="scripts/core/generic.directive.js"></script>
+    <script src="scripts/services/ng.table.service.js"></script>
+    <script src="scripts/services/growl.service.js"></script>
+    <script src="scripts/auth/auth.controller.js"></script>
+    <script src="scripts/auth/password.reset.controller.js"></script>
+    <script src="scripts/auth/session.service.js"></script>
+
+    <script src="scripts/organization/organization.model.js"></script>
+    <script src="scripts/organization/organization.list.controller.js"></script>
+    <script src="scripts/organization/organization.crud.controller.js"></script>
+
+    <script src="scripts/visitor/visitor.model.js"></script>
+    <script src="scripts/visitor/visitor.list.controller.js"></script>
+
+    <script src="scripts/user/user.model.js"></script>
+    <script src="scripts/user/user.list.controller.js"></script>
+    <script src="scripts/user/user.add.controller.js"></script>
+    <script src="scripts/user/user.directive.js"></script>
 </body>
 </html>
